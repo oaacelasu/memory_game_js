@@ -2,40 +2,109 @@ body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 100%;
     background-color: white;
-    width: 750px;  
+    width: 750px;
     margin: 0 auto;
     border: 3px solid blue;
     padding: 0 2em 1em;
 }
-h1 { 
+
+h1 {
     font-size: 150%;
     color: blue;
     margin-bottom: .5em;
 }
+
 label {
     float: left;
     width: 8em;
 }
-input, select { 
+
+input, select {
     width: 10em;
     margin-right: 1em;
     margin-bottom: 1em;
 }
-input[type=checkbox] { 
+
+input[type=checkbox] {
     width: 2em;
 }
-header p {
-	margin: 0 2em 1em 0;
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    gap: 20px;
 }
-#new_game, #player, #high_score, #correct {
-	float: left;
+
+.timer-container, .tries-container, .matched-container, .high-score-container, .correct-container, .actions-container {
+    display: inline-flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
+
+.game-info {
+    font-size: 1em;
+    background: white;
+    border: 1px solid #007fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.game-info:active {
+    background: #007fff;
+    color: white;
+}
+
+.game-info:focus {
+    outline: none;
+}
+
+.game-info:hover {
+    background: #007fff;
+    color: white;
+}
+
+.game-info:disabled {
+    background: #007fff;
+    color: white;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    align-items: center;
+    justify-content: center;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#cards {
+    display: inline-block;
+}
+
 #cards img {
     height: 100px;
     width: 80px;
     padding-right: 5px;
     padding-bottom: 3px;
-    float: left; 
+    float: left;
+}
+
+#cards a:hover {
+    opacity: 0.5;
+}
+
+#cards img:hover {
+    transform: scale(1.1);
 }
 .clear {
     clear: both;

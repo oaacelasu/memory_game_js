@@ -1,61 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Memory Game</title>
-    <link type="text/css" rel="stylesheet" href="jquery-ui.min.css"> 
-    <link type="text/css" rel="stylesheet" href="memory.css"> 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4755447fee.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
+          rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="jquery-ui.min.css">
+    <link type="text/css" rel="stylesheet" href="memory.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="jquery-ui.min.js"></script> 
+    <script src="jquery-ui.min.js"></script>
+    <script src="libs/controllers.js"></script>
+    <script src="libs/utils.js"></script>
+    <script src="libs/session.js"></script>
+    <script src="libs/timer.js"></script>
+    <script src="libs/game.js"></script>
+    <script src="libs/card.js"></script>
+    <script src="memory.js"></script>
+    <link rel="stylesheet"
+          href="../../../../../../Volumes/Samsung_T5/oaacelasu/Documents/Conestoga/semester 1/javascript/projects/dictionary/style.css">
 </head>
 <body>
-    <header>
+<header>
+    <div class="timer-container">
+        <h6>Timer</h6>
+        <div class="game-info" id="timer">00:00</div>
+    </div>
+    <div class="tries-container">
+        <h6>Tries</h6>
+        <div class="game-info" id="tries">0</div>
+    </div>
+    <div class="matched-container">
+        <h6>Matched</h6>
+        <div class="game-info" id="matched">0</div>
+    </div>
+    <div class="title-container">
         <h1>Memory Game</h1>
-        <p id="new_game"><a href="index.html">New Game</a></p>
-        <p id="player">&nbsp;</p>	
-        <p id="high_score">&nbsp;</p>
-        <p id="correct">&nbsp;</p>        	
-        <div class="clear"></div>       
-    </header>
-    <main>         
-        <div id="tabs"> 
-            <ul>
-                <li><a href="#tabs-1">Play Game</a></li>
-                <li><a href="#tabs-2">View Rules</a></li>
-                <li><a href="#tabs-3">Settings</a></li>
-            </ul>
-            <div id="tabs-1">
-                <div id="cards"></div>
+        <p id="player">&nbsp;</p>
+    </div>
+    <div class="high-score-container">
+        <h6>High score</h6>
+        <div class="game-info" id="high-score">0</div>
+    </div>
+    <div class="correct-container">
+        <h6>Latest score</h6>
+        <div class="game-info" id="latest-score">0</div>
+    </div>
+    <div class="actions-container">
+        <input type='button' id='stop' value='Stop'>
+        <input type='button' id='restart' value='Restart'>
+    </div>
+</header>
+<main>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Play Game</a></li>
+            <li><a href="#tabs-2">View Rules</a></li>
+            <li><a href="#tabs-3">Settings</a></li>
+        </ul>
+        <div id="tabs-1">
+            <div id="home">
+                <input type='button' id='new-game' value='New Game'>
             </div>
-            <div id="tabs-2">
-                <fieldset>
-                    <legend>How to play the Memory game</legend>
-                    <ul>
-                        <li>The cards are placed face down. Each card has a matching card.</li>
-                        <li>For each turn, the player select two cards.</li>
-                        <li>If the cards match, they are removed from the board.</li>
-                        <li>If the cards don't match, they are turned face down again.</li>
-                        <li>At the end of the game, the player receives a score based on the number
-                            of correct selections that were made.</li>
-                    </ul>
-                </fieldset>
-            </div>
-            <div id="tabs-3">
-                <label for='player_name'>Player name:</label>
-                <input type='text' id='player_name'><br>
-                
-                <label for='num_cards'>Number of cards:</label>
-                <select id='num_cards'>
-                    <option>48</option>
-                    <option>40</option>
-                    <option>32</option>
-                    <option>24</option>
-                    <option>16</option>
-                    <option>8</option>
-                </select><br>
-                
-                <input type='button' id='save_settings' value='Save Settings'>
+            <div id="cards">
             </div>
         </div>
-    </main> 
+        <div id="tabs-2">
+            <fieldset>
+                <legend>How to play the Memory game</legend>
+                <ul>
+                    <li>The cards are placed face down. Each card has a matching card.</li>
+                    <li>For each turn, the player select two cards.</li>
+                    <li>If the cards match, they are removed from the board.</li>
+                    <li>If the cards don't match, they are turned face down again.</li>
+                    <li>At the end of the game, the player receives a score based on the number
+                        of correct selections that were made.
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
+        <div id="tabs-3">
+            <label for='player_name'>Player name:</label>
+            <input type='text' id='player_name'><br>
+
+            <label for='num_cards'>Number of cards:</label>
+            <select id='num_cards'>
+                <option>48</option>
+                <option>40</option>
+                <option>32</option>
+                <option>24</option>
+                <option>16</option>
+                <option>8</option>
+            </select><br>
+
+            <input type='button' id='save_settings' value='Save Settings'>
+        </div>
+    </div>
+</main>
 </body>
 </html>
