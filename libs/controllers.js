@@ -1,7 +1,13 @@
+"use strict";
+/*
+ * Memory Game - View Controller and Audio Controller classes
+ * @author Oscar Acelas <oacelasupegui4062@conestoga.on.ca>
+ */
 class ViewController {
     constructor() {
     }
 
+    // this method is used to show the game view
     updateAll(game) {
         // update values
         this.updateTimer(game.timer.toString());
@@ -18,6 +24,7 @@ class ViewController {
         }
     };
 
+    // update the card view using animation
     updateCardView(card) {
         let _image = card.image
         let isMatched = card.isMatched
@@ -38,10 +45,12 @@ class ViewController {
         }
     };
 
+    // udpate the timer view
     updateTimer(time) {
         $("#timer").text(time);
     };
 
+    // update the cards deck view
     updateCardsDeck(game) {
         $("#cards").empty();
         for (let i = 0; i < (game.cards.length / 8); i++) {
@@ -56,6 +65,7 @@ class ViewController {
         });
     };
 
+    // update the player name view
     updatePlayerName(name) {
         $("#player").text(name);
     };
@@ -65,6 +75,7 @@ class ViewController {
         $("#matched").text(matched);
     };
 
+    // update the score view
     updateHistory(bestScore, latestScore) {
         $("#high-score").text(`${bestScore}%`);
         $("#latest-score").text(`${latestScore}%`);
@@ -99,6 +110,7 @@ class ViewController {
     };
 }
 
+// class responsible for the audio
 class AudioController {
     constructor() {
         this.bgMusic = new Audio(`audio/spread_the_wings.mp3`);

@@ -1,3 +1,10 @@
+"use strict";
+/*
+ * Memory Game - Session class
+ * @author Oscar Acelas <oacelasupegui4062@conestoga.on.ca>
+ */
+
+// this class contains the session settings and scores
 class Session {
     constructor() {
         this.name = "";
@@ -6,6 +13,8 @@ class Session {
         this.bestScore = 0;
         this.lastScore = 0;
     }
+
+    // load the session settings and scores from session storage by the player name
     load() {
         // load the settings from session storage
         this.name = sessionStorage.getItem("name") || "Guest";
@@ -21,6 +30,8 @@ class Session {
             this.lastScore = 0;
         }
     };
+
+    // save the session settings for the current player
     saveSettings(playerName, numberOfCards, volume) {
         // save the settings to session storage
         sessionStorage.setItem("name", playerName);
@@ -28,6 +39,8 @@ class Session {
         sessionStorage.setItem(`volume_${playerName}`, volume);
         this.load()
     };
+
+    // save the score for the current player
     updateScores(tries, matched) {
         let score = Math.round((matched / tries) * 100);
         // update the best score and last score

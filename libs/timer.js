@@ -1,3 +1,10 @@
+"use strict";
+/*
+ * Memory Game - Timer class
+ * @author Oscar Acelas <oacelasupegui4062@conestoga.on.ca>
+ */
+
+// this class is used to create a timer
 class Timer {
     constructor() {
         this._timer = null;
@@ -5,6 +12,7 @@ class Timer {
         this.listeners = [];
     }
 
+    // this method is used to add a listener to the timer
     addListener(listener) {
         this.listeners.push(listener);
     }
