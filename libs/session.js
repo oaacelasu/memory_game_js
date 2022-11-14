@@ -2,6 +2,7 @@ class Session {
     constructor() {
         this.name = "";
         this.numberOfCards = 0;
+        this.volume = 50;
         this.bestScore = 0;
         this.lastScore = 0;
     }
@@ -9,6 +10,7 @@ class Session {
         // load the settings from session storage
         this.name = sessionStorage.getItem("name") || "Guest";
         this.numberOfCards = sessionStorage.getItem(`numberOfCards_${this.name}`) || 48;
+        this.volume = sessionStorage.getItem(`volume_${this.name}`) || 50;
         this.bestScore = parseInt(sessionStorage.getItem(`bestScore_${this.name}`)) || 0;
         this.lastScore = parseInt(sessionStorage.getItem(`lastScore_${this.name}`)) || 0;
         if (Number.isNaN(this.bestScore)) {
@@ -19,10 +21,11 @@ class Session {
             this.lastScore = 0;
         }
     };
-    saveSettings(playerName, numberOfCards) {
+    saveSettings(playerName, numberOfCards, volume) {
         // save the settings to session storage
         sessionStorage.setItem("name", playerName);
-        sessionStorage.setItem(`numberOfCards_${this.name}`, numberOfCards);
+        sessionStorage.setItem(`numberOfCards_${playerName}`, numberOfCards);
+        sessionStorage.setItem(`volume_${playerName}`, volume);
         this.load()
     };
     updateScores(tries, matched) {

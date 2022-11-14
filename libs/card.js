@@ -32,7 +32,6 @@ class Card {
     toString() {
         return `Card ${this.index + 1}`;
     }
-
     get view() {
         return `<a href="#" class="card" id="card_${this.index}" data-index="${this.index}"><img src="${this.image}" alt="${this.toString()}"></a>`;
     }

@@ -15,14 +15,17 @@ class Timer {
     }
 
     start() {
-        console.log("Starting timer");
         if (!this._timer) {
-            console.log("Starting...");
             this._timer = setInterval(() => {
                 this.elapsed++;
                 this.listeners.forEach(listener => listener(this.toString()));
             }, 1000);
         }
+    }
+
+    pause() {
+        clearInterval(this._timer);
+        this._timer = null;
     }
 
     stop() {

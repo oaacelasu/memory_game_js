@@ -6,16 +6,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Memory Game</title>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/4755447fee.js" crossorigin="anonymous"></script>
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Press+Start+2P&display=swap"
           rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="jquery-ui.min.css">
     <link type="text/css" rel="stylesheet" href="memory.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="jquery-ui.min.js"></script>
     <script src="libs/controllers.js"></script>
     <script src="libs/utils.js"></script>
@@ -24,38 +22,44 @@
     <script src="libs/game.js"></script>
     <script src="libs/card.js"></script>
     <script src="memory.js"></script>
-    <link rel="stylesheet"
-          href="../../../../../../Volumes/Samsung_T5/oaacelasu/Documents/Conestoga/semester 1/javascript/projects/dictionary/style.css">
 </head>
 <body>
 <header>
-    <div class="timer-container">
-        <h6>Timer</h6>
-        <div class="game-info" id="timer">00:00</div>
+    <div class="header_left">
+        <div class="timer-container">
+            <h6>Timer</h6>
+            <div class="game-info" id="timer">00:00</div>
+        </div>
+        <div class="tries-container">
+            <h6>Tries</h6>
+            <div class="game-info" id="tries">0</div>
+        </div>
+        <div class="matched-container">
+            <h6>Matched</h6>
+            <div class="game-info" id="matched">0</div>
+        </div>
     </div>
-    <div class="tries-container">
-        <h6>Tries</h6>
-        <div class="game-info" id="tries">0</div>
+
+    <div class="header_center">
+        <div class="title-container">
+            <h1>Memory Game</h1>
+            <h2 id="player">&nbsp;</h2>
+        </div>
     </div>
-    <div class="matched-container">
-        <h6>Matched</h6>
-        <div class="game-info" id="matched">0</div>
-    </div>
-    <div class="title-container">
-        <h1>Memory Game</h1>
-        <p id="player">&nbsp;</p>
-    </div>
-    <div class="high-score-container">
-        <h6>High score</h6>
-        <div class="game-info" id="high-score">0</div>
-    </div>
-    <div class="correct-container">
-        <h6>Latest score</h6>
-        <div class="game-info" id="latest-score">0</div>
-    </div>
-    <div class="actions-container">
-        <input type='button' id='stop' value='Stop'>
-        <input type='button' id='restart' value='Restart'>
+
+    <div class="header_right">
+        <div class="high-score-container">
+            <h6>High score</h6>
+            <div class="game-info" id="high-score">0</div>
+        </div>
+        <div class="correct-container">
+            <h6>Latest score</h6>
+            <div class="game-info" id="latest-score">0</div>
+        </div>
+        <div class="actions-container">
+            <input type='button' id='stop' value='Stop'>
+            <input type='button' id='restart' value='Restart'>
+        </div>
     </div>
 </header>
 <main>
@@ -100,7 +104,11 @@
                 <option>8</option>
             </select><br>
 
-            <input type='button' id='save_settings' value='Save Settings'>
+
+            <label for='volume'>Volume</label>
+            <input type="range" min="1" max="100" value="50" class="slider" id="volume">
+
+            <input type='button' id='save_settings' value='Save'>
         </div>
     </div>
 </main>

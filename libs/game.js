@@ -6,6 +6,7 @@ class Game {
         this.timer = new Timer();
         this.session = null;
         this.isRunning= false;
+        this.isPaused = false;
         this.currentFlipped= null;
         this.triesCount= 0;
         this.matchedCount= 0;
@@ -39,12 +40,31 @@ class Game {
         this.timer.stop()
         this.cards.length = 0
         this.isRunning = false
+        this.isPaused = false
         this.currentFlipped = null
         this.triesCount = 0
         this.matchedCount = 0
         this.uiController.updateAll(this)
         this.audioController.stopMusic()
+        this.audioController.setVolume(this.session.volume)
     };
+
+    pause() {
+        this.isRunning = true
+        this.isPaused = true
+        this.timer.pause()
+        this.audioController.pauseMusic()
+        this.uiController.updateAll(this)
+    }
+
+    resume() {
+        this.isRunning = true
+        this.isPaused = false
+        this.timer.start()
+        this.audioController.resumeMusic()
+        this.uiController.updateAll(this)
+    }
+
     newGame() {
         this.createDeck()
         this.timer.start()
