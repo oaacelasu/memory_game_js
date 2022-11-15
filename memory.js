@@ -46,7 +46,14 @@ $(document).ready(() => {
     // initialize tabs and add listener to the tabs
     $("#tabs").tabs(
         {
-            activate: game.onTabChanged
+            activate: function (event, ui) {
+                let panelId = ui.newPanel.attr('id');
+                if((panelId === "tabs-2" ||  panelId === "tabs-3") && game.isRunning) {
+                    game.pause();
+                } else if(panelId === "tabs-1" && game.isPaused) {
+                    game.resume();
+                }
+            }
         }
     );
     // add event handlers for the buttons

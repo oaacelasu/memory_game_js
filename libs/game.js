@@ -126,13 +126,4 @@ class Game {
             this.busy = false
         }, 1000)
     };
-
-    onTabChanged(event, ui) {
-        let panelId = ui.newPanel.attr('id');
-        if((panelId === "tabs-2" ||  panelId === "tabs-3") && this.isRunning) {
-            this.pause();
-        } else if(panelId === "tabs-1" && this.isPaused) {
-            this.resume();
-        }
-    }
 }
