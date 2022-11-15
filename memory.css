@@ -229,6 +229,7 @@ fieldset li {
 
 input[type=text], select {
     color: black;
+    padding: 4px 4px;
 }
 input[type=button]{
     background-color: #007fff;
@@ -242,4 +243,9 @@ input[type=button]:hover {
     background-color: white;
     color: #007fff;
     border: solid 1px #007fff;
+}
+
+#num_cards option {
+    color: black;
+    font-size: 14px;
 }
