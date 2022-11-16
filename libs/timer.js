@@ -1,11 +1,11 @@
 "use strict";
 /*
  * Memory Game - Timer class
- * @author Oscar Acelas <oacelasupegui4062@conestoga.on.ca>
  */
-
 // this class is used to create a timer
 class Timer {
+
+    //constructor that defines properties for _timer, elapsed, listeners
     constructor() {
         this._timer = null;
         this.elapsed = 0;

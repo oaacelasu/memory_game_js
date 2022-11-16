@@ -2,9 +2,7 @@
 
 /*
  * Memory Game - Card class
- * @author Oscar Acelas <oacelasupegui4062@conestoga.on.ca>
  */
-
 class Card {
     constructor(indexImage) {
         this.indexImage = indexImage;

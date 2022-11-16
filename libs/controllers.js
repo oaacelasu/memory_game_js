@@ -1,7 +1,6 @@
 "use strict";
 /*
  * Memory Game - View Controller and Audio Controller classes
- * @author Oscar Acelas <oacelasupegui4062@conestoga.on.ca>
  */
 class ViewController {
     constructor() {

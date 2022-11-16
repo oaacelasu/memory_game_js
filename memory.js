@@ -1,9 +1,5 @@
 "use strict";
 
-/*
- * @author Oscar Acelas <oacelasupegui4062@conestoga.on.ca>
- */
-
 // addEventHandlers function
 function addEventHandlers(game) {
 

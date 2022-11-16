@@ -1,7 +1,6 @@
 "use strict";
 /*
  * Memory Game - Game class
- * @author Oscar Acelas <oacelasupegui4062@conestoga.on.ca>
  */
 class Game {
     constructor() {
@@ -17,6 +16,7 @@ class Game {
         this.matchedCount= 0;
         this.busy = false
     }
+
     createDeck() {
         this.cards.length = 0
         while (this.cards.length < this.session.numberOfCards) {
@@ -26,12 +26,14 @@ class Game {
         }
         shuffleArray(this.cards)
     };
+
     init(session) {
         this.session = session
         this.timer.addListener(this.uiController.updateTimer)
         this.uiController.updateAll(this);
         this.uiController.updateSettings(session);
     };
+
     restart() {
         this.createDeck()
         this.timer.restart()
@@ -41,6 +43,7 @@ class Game {
         this.uiController.updateAll(this)
         this.audioController.startMusic();
     };
+
     stop() {
         this.timer.stop()
         this.cards.length = 0
@@ -77,6 +80,7 @@ class Game {
         this.uiController.updateAll(this)
         this.audioController.startMusic();
     };
+    
     canFlipCard(index) {return !this.busy && index !== this.currentFlipped?.index && !this.cards[index].isMatched}
     onClickCard(index) {
         if(this.canFlipCard(index)) {

@@ -1,115 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Memory Game</title>
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Press+Start+2P&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="jquery-ui.min.css">
     <link type="text/css" rel="stylesheet" href="memory.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="jquery-ui.min.js"></script>
-    <script src="libs/controllers.js"></script>
-    <script src="libs/utils.js"></script>
-    <script src="libs/session.js"></script>
-    <script src="libs/timer.js"></script>
-    <script src="libs/game.js"></script>
-    <script src="libs/card.js"></script>
-    <script src="memory.js"></script>
 </head>
+
 <body>
-<header>
-    <div class="header_left">
-        <div class="timer-container">
-            <h6>Timer</h6>
-            <div class="game-info" id="timer">00:00</div>
-        </div>
-        <div class="tries-container">
-            <h6>Tries</h6>
-            <div class="game-info" id="tries">0</div>
-        </div>
-        <div class="matched-container">
-            <h6>Matched</h6>
-            <div class="game-info" id="matched">0</div>
-        </div>
-    </div>
-
-    <div class="header_center">
-        <div class="title-container">
-            <h1>Memory Game</h1>
-            <h2 id="player">&nbsp;</h2>
-        </div>
-    </div>
-
-    <div class="header_right">
-        <div class="high-score-container">
-            <h6>High score</h6>
-            <div class="game-info" id="high-score">0</div>
-        </div>
-        <div class="correct-container">
-            <h6>Latest score</h6>
-            <div class="game-info" id="latest-score">0</div>
-        </div>
-        <div class="actions-container">
-            <input type='button' id='stop' value='Stop'>
-            <input type='button' id='restart' value='Restart'>
-        </div>
-    </div>
-</header>
-<main>
-    <div id="tabs">
-        <ul>
-            <li><a href="#tabs-1">Play Game</a></li>
-            <li><a href="#tabs-2">View Rules</a></li>
-            <li><a href="#tabs-3">Settings</a></li>
-        </ul>
-        <div id="tabs-1">
-            <div id="home">
-                <input type='button' id='new-game' value='New Game'>
+    <header>
+        <div class="header_left">
+            <div class="timer-container">
+                <h6>Timer</h6>
+                <div class="game-info" id="timer">00:00</div>
             </div>
-            <div id="cards">
+            <div class="tries-container">
+                <h6>Tries</h6>
+                <div class="game-info" id="tries">0</div>
+            </div>
+            <div class="matched-container">
+                <h6>Matched</h6>
+                <div class="game-info" id="matched">0</div>
             </div>
         </div>
-        <div id="tabs-2">
-            <fieldset>
-                <legend>How to play the Memory game</legend>
-                <ul>
-                    <li>The cards are placed face down. Each card has a matching card.</li>
-                    <li>For each turn, the player select two cards.</li>
-                    <li>If the cards match, they are removed from the board.</li>
-                    <li>If the cards don't match, they are turned face down again.</li>
-                    <li>At the end of the game, the player receives a score based on the number
-                        of correct selections that were made.
-                    </li>
-                </ul>
-            </fieldset>
+
+        <div class="header_center">
+            <div class="title-container">
+                <h1>Memory Game</h1>
+                <h2 id="player">&nbsp;</h2>
+            </div>
         </div>
-        <div id="tabs-3">
-            <label for='player_name'>Player name:</label>
-            <input type='text' id='player_name'><br>
 
-            <label for='num_cards'>Number of cards:</label>
-            <select id='num_cards'>
-                <option>48</option>
-                <option>40</option>
-                <option>32</option>
-                <option>24</option>
-                <option>16</option>
-                <option>8</option>
-            </select><br>
-
-            <label for='volume'>Volume</label>
-            <input type="range" min="1" max="100" value="50" class="slider" id="volume">
-
-            <input type='button' id='save_settings' value='Save'>
+        <div class="header_right">
+            <div class="high-score-container">
+                <h6>High score</h6>
+                <div class="game-info" id="high-score">0</div>
+            </div>
+            <div class="correct-container">
+                <h6>Latest score</h6>
+                <div class="game-info" id="latest-score">0</div>
+            </div>
+            <div class="actions-container">
+                <input type='button' id='stop' value='Stop'>
+                <input type='button' id='restart' value='Restart'>
+            </div>
         </div>
-    </div>
-</main>
+    </header>
+    <main>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Play Game</a></li>
+                <li><a href="#tabs-2">View Rules</a></li>
+                <li><a href="#tabs-3">Settings</a></li>
+            </ul>
+            <div id="tabs-1">
+                <div id="home">
+                    <input type='button' id='new-game' value='New Game'>
+                </div>
+                <div id="cards">
+                </div>
+            </div>
+            <div id="tabs-2">
+                <fieldset>
+                    <legend>How to play the Memory game</legend>
+                    <ul>
+                        <li>The cards are placed face down. Each card has a matching card.</li>
+                        <li>For each turn, the player select two cards.</li>
+                        <li>If the cards match, they are removed from the board.</li>
+                        <li>If the cards don't match, they are turned face down again.</li>
+                        <li>At the end of the game, the player receives a score based on the number
+                            of correct selections that were made.
+                        </li>
+                    </ul>
+                </fieldset>
+            </div>
+            <div id="tabs-3">
+                <label for='player_name'>Player name:</label>
+                <input type='text' id='player_name'><br>
+
+                <label for='num_cards'>Number of cards:</label>
+                <select id='num_cards'>
+                    <option>48</option>
+                    <option>40</option>
+                    <option>32</option>
+                    <option>24</option>
+                    <option>16</option>
+                    <option>8</option>
+                </select><br>
+
+                <label for='volume'>Volume</label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="volume">
+
+                <input type='button' id='save_settings' value='Save'>
+            </div>
+        </div>
+    </main>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="libs/controllers.js"></script>
+<script src="libs/utils.js"></script>
+<script src="libs/session.js"></script>
+<script src="libs/timer.js"></script>
+<script src="libs/game.js"></script>
+<script src="libs/card.js"></script>
+<script src="memory.js"></script>
+
 </html>
