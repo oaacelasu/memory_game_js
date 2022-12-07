@@ -1,7 +1,7 @@
 "use strict";
 
 // addEventHandlers function
-function addEventHandlers(game) {
+function addEventHandlers() {
 
     // Add event handler for start a new game
     $("#new-game").click(() => {
@@ -20,24 +20,20 @@ function addEventHandlers(game) {
 
     // Add event handler for the save settings button
     $("#save_settings").click(() => {
-        game.session.saveSettings($("#player_name").val(), $("#num_cards").val(), $("#volume").val());
-        game.uiController.updateSettings(game.session);
+        library_settings.saveSettings($("#player_name").val(), $("#num_cards").val(), $("#volume").val());
+        library_settings.updateSettings();
         game.stop();
     });
 }
 
 $(document).ready(() => {
 
-    // create a new game object
-    let game = new Game();
-    // create a new session object
-    let session = new Session();
-
-    // load the session settings and scores
-    session.load();
+    // load the session settings and library_scores
+    library_settings.load();
+    library_scores.load();
 
     // initialize the game
-    game.init(session);
+    game.init();
 
     // initialize tabs and add listener to the tabs
     $("#tabs").tabs(
@@ -53,6 +49,6 @@ $(document).ready(() => {
         }
     );
     // add event handlers for the buttons
-    addEventHandlers(game);
+    addEventHandlers();
 });
 
